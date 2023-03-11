@@ -20,11 +20,7 @@ input.onButtonPressed(Button.B, function () {
 })
 radio.onReceivedValue(function (name, value) {
     if (mode == 2) {
-        serial.writeLine("foo")
-        led.plotBarGraph(
-        value,
-        3000
-        )
+        serial.writeValue(name, value)
     }
 })
 let mode = 0
@@ -53,6 +49,6 @@ basic.showLeds(`
  */
 basic.forever(function () {
     if (mode == 1) {
-        radio.sendValue("a", input.acceleration(Dimension.Strength))
+        radio.sendValue("ax", input.acceleration(Dimension.X))
     }
 })
