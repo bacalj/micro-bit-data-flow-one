@@ -21,6 +21,10 @@ input.onButtonPressed(Button.B, function () {
 radio.onReceivedValue(function (name, value) {
     if (mode == 2) {
         serial.writeValue(name, value)
+        led.plotBarGraph(
+        value,
+        3000
+        )
     }
 })
 let mode = 0
